@@ -1,6 +1,16 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Typography, Button, Card, makeStyles, CardContent, CardActions, Collapse, Grid, IconButton } from "@material-ui/core";
+import {
+  Typography,
+  Button,
+  Card,
+  makeStyles,
+  CardContent,
+  CardActions,
+  Collapse,
+  Grid,
+  IconButton,
+} from "@material-ui/core";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import clsx from "clsx";
 import { red } from "@material-ui/core/colors";
@@ -40,36 +50,44 @@ export default function RecipeCard({ cardInfo }) {
   };
 
   // console.log("id in recipecard component: ", id);
-  // console.log("card info id: ", cardInfo.id);
+  // console.log("card info id: ", cardInfo);
 
   return (
     <>
       <Card className={classes.root}>
         <CardContent>
-          <Typography className={classes.title} color="textSecondary" gutterBottom>
+          <Typography
+            className={classes.title}
+            color="textSecondary"
+            gutterBottom
+          >
             Secret Recipe
           </Typography>
           <Typography variant="h5" component="h2">
-            Title: {cardInfo.recipe_name}
+            Name: {cardInfo.first_name} {cardInfo.last_name}
           </Typography>
           <Typography className={classes.pos} color="textPrimay">
-            Recipe Source: {cardInfo.recipe_source}
+            Email: {cardInfo.email}
           </Typography>
-          <Typography className={classes.pos} color="textSecondary">
-            Category: {cardInfo.category}
+
+          {/* <Typography className={classes.pos} color="textSecondary">
+            Category: {cardInfo.pantone_value}
           </Typography>
           <Typography className={classes.pos} variant="body2" component="p">
             <Typography color="primary">Description</Typography>
 
-            {cardInfo.description}
-          </Typography>
+            {cardInfo.year}
+          </Typography> */}
         </CardContent>
 
         <CardActions disableSpacing>
           <Grid container justify="space-between">
             {/* EDIT BUTTON */}
             <Grid item>
-              <Link to={`/EditRecipe/${cardInfo.id}`} style={{ textDecoration: "none" }}>
+              <Link
+                to={`/EditRecipe/${cardInfo.id}`}
+                style={{ textDecoration: "none" }}
+              >
                 <Button color="primary" size="small">
                   Edit
                 </Button>
@@ -77,7 +95,7 @@ export default function RecipeCard({ cardInfo }) {
             </Grid>
 
             {/* EXPAND BUTTON */}
-            <Grid item justify="flex-end">
+            {/* <Grid item justify="flex-end">
               <IconButton onClick={handleExpandClick}>
                 <ExpandMoreIcon
                   className={clsx(classes.expand, {
@@ -87,22 +105,22 @@ export default function RecipeCard({ cardInfo }) {
                   aria-label="show more"
                 />
               </IconButton>
-            </Grid>
+            </Grid> */}
           </Grid>
         </CardActions>
 
-        <Collapse in={expanded} timeout="auto" unmountOnExit>
+        {/* <Collapse in={expanded} timeout="auto" unmountOnExit>
           <CardContent>
             <Typography className={classes.pos} variant="body2" component="p">
               <Typography color="primary">Ingredients</Typography>
-              {cardInfo.ingredients}
+              {cardInfo.id}
             </Typography>
             <Typography variant="body2" component="p">
               <Typography color="primary">Instructions</Typography>
-              {cardInfo.instructions}
+              {cardInfo.id}
             </Typography>
           </CardContent>
-        </Collapse>
+        </Collapse>  */}
       </Card>
     </>
   );

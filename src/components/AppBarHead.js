@@ -22,15 +22,27 @@ export default function AppBarHead({ searchForm, setSearchForm }) {
               </Typography>
             </Grid>
             <Grid item xs={12} md={6} lg={6}>
-              <SearchBar searchForm={searchForm} setSearchForm={setSearchForm} />
+              <SearchBar
+                searchForm={searchForm}
+                setSearchForm={setSearchForm}
+              />
             </Grid>
             <Grid item xs={6} md={2} lg={2}>
-              <Button className="AppBarButton" onClick={() => history.push("/AddRecipe")} variant="contained" style={{ backgroundColor: "green", color: "white" }}>
-                Add Recipe
+              <Button
+                className="AppBarButton"
+                onClick={() => history.push("/AddRecipe")}
+                variant="contained"
+                style={{ backgroundColor: "green", color: "white" }}
+              >
+                Add
               </Button>
             </Grid>
             <Grid item xs={6} md={2} lg={2}>
-              <Button className="AppBarButton" onClick={logout} variant="contained">
+              <Button
+                className="AppBarButton"
+                onClick={logout}
+                variant="contained"
+              >
                 Logout
               </Button>
             </Grid>

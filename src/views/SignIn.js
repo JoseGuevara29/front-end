@@ -95,9 +95,12 @@ export default function SignIn() {
   const logInUser = (userInformation) => {
     // should I check if allUsers includes userInformation before or after the axios.get()?
     axios
-      .post("https://secret-family-recipes6.herokuapp.com/api/auth/login", userInformation)
+      .post(
+        "https://secret-family-recipes6.herokuapp.com/api/auth/login",
+        userInformation
+      )
       .then((res) => {
-        // console.log("happy path: ", res.data);
+        console.log("Login info: ", res.data);
         // console.log("MY token", res.data.token);
         localStorage.setItem("token", res.data.token);
         history.push("/home");
@@ -121,7 +124,13 @@ export default function SignIn() {
 
   return (
     <>
-      <SignInForm values={formValues} change={inputChange} submit={formSubmit} disabled={disabled} errors={formErrors} />
+      <SignInForm
+        values={formValues}
+        change={inputChange}
+        submit={formSubmit}
+        disabled={disabled}
+        errors={formErrors}
+      />
     </>
   );
 }
